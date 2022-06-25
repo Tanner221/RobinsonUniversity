@@ -1,31 +1,50 @@
 ﻿@model IEnumerable<RobinsonUniversity.Models.SchoolViewModels.EnrollmentDateGroup>
 
-   @* For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860 *@
+@* For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860 *@
 
 @{
     ViewData["Title"] = "About - Student Body Statistics";
 }
+<div class="row">
+    <div class="col-md-6">
+        <h2>Contact Information:</h2>
+        <p>&ensp; <b>Phone Number: </b>(509)554-4633</p>
+        <p>&ensp; <b>Email Address: </b>Rob16041@byui.edu</p>
+        <p>&ensp; <b>LinkedIn: </b>Rob16041@byui.edu</p>
+        <p>&ensp; <b>Address: </b>1000 Random St. Rexburg, ID 83440</p>
+        <h2>Student Body Statistics</h2>
 
-<h2>Student Body Statistics</h2>
+        <table>
+            <tr>
+                <th>
+                    Enrollment Date
+                </th>
+                <th>
+                    Students
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                    </td>
+                    <td>
+                        @item.StudentCount
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-md-6">
+        <h2>University President</h2>
+        <img src="/img/LinkedInPortrate.jpg" alt="Tanner Robinson Portrate" class="col-md-6 rounded mx-auto d-block"/>
+        <br />
+        <p>Tanner Robinson is the founder of Robinson University. The first university in the nation to help students learn without a cost of tuition. Mr Robinson is a visionary that sees the education
+            of all people as one of the most important goals of the world. In his family, Education has always been an expectation. Tanner hopes to bring this expectation to reality for everyone through Robinson University.
+        </p>
+    </div>
+</div>
 
-<table>
-    <tr>
-        <th>
-            Enrollment Date
-        </th>
-        <th>
-            Students
-        </th>
-    </tr>
-    @foreach(var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EnrollmentDate)
-            </td>
-            <td>
-                @item.StudentCount
-            </td>
-        </tr>
-    }
-</table>
+
+
